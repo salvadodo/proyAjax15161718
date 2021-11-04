@@ -1,4 +1,5 @@
 <?php
+//Backend con base de datos sql server
 // require "conexionmysql.php";
 // $datos=mysqli_query($con, "select * from ajaxconbd2");
 // while($fila=mysqli_fetch_array($datos, MYSQLI_BOTH)){
