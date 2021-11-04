@@ -8,6 +8,7 @@
 // }
 // mysqli_close($con);
 
+//Backend con base de datos mysql
 require "conexionsqlserver.php";
 $datos=sqlsrv_query($con, "select * from AjaxconBD2");
 while($fila=sqlsrv_fetch_array($datos, SQLSRV_FETCH_BOTH)){
