@@ -7,128 +7,128 @@
         .miclass{color:blue}
     </style>
 </head>
-<body onload="mostrarClientes()">
-<!-- <body id="mostrarClientes"> -->
+<!-- <body onload="mostrarClientes()"> -->
+<body id="mostrarClientes">
     <form>
         <label for="idbuscar">Buscar Cliente:</label>
-        <!--<input type="text" id="idbuscar" name="namebuscar" placeholder="Ingresar nombre" onkeyup="buscarTextoEnNombre(this.value)" />-->
+        <!-- <input type="text" id="idbuscar" name="namebuscar" placeholder="Ingresar nombre" onkeyup="buscarTextoEnNombre(this.value)" /> -->
         <input type="text" id="idbuscar" name="namebuscar" placeholder="Ingresar nombre" />
     </form>
     <div id="mostrar"></div>
     <script src="jquery-3.6.0.min.js"></script>
     <script>
-        //Forma 1
-        function mostrarClientes() {
-           //var a = $("#idnombre").val();
-           //var b = $("#idcorreo").val();
-           ////var cadPass = "Nombre=" + a + "&Correo=" + b;
-           //var cadPass = { Nombre: a, Correo: b };
-           $.ajax({
-               type: "POST",
-               url: "servidor.php",
-               //data: '{Nombre: "' + $("#nombre").val() + '", Apellido: "' + $("#apellido").val() + '"}',
-               //data: cadPass,
-               //data: JSON.stringify(cadPass),
-               contentType: "application/x-www-form-urlencoded; charset=utf-8",
-               //contentType: "text/ html; charset = utf - 8",
-            //    contentType: "application/json; charset=utf-8",
-            //    dataType: "json",
-               dataType: "html",
-               success: function (msg) {
-                   $("#mostrar").html(msg);
-                   console.log(msg);
-                   //var tablaDat = msg.getElementsByTagName("string")[0].firstChild.data;
-                   //$("#mostrar").html(tablaDat);
-                   //console.log(msg);
-               },
-               error: function (err) {
-                   //error
-               }
-           });
-        }
-        function buscarTextoEnNombre(name) {
-           //var cadPass = "Nombre=" + name;
-           var cadPass = { Nombre: name };
-           $.ajax({
-               //type: "GET",
-               type: "POST",
-               url: "servidor.php",
-               //url: "WebService1.asmx/findTextInName?Nombre=" + name,
-               //data: cadPass,
-               data: JSON.stringify(cadPass),
-               //contentType: "application/x-www-form-urlencoded; charset=utf-8",
-               contentType: "application/json; charset=utf-8",
-               //dataType: "xml",
-               dataType: "json",
-               success: function (msg) {
-                   $("#mostrar").html(msg.d);
-                   //var tablaDat = msg.getElementsByTagName("string")[0].firstChild.data;
-                   //$("#mostrar").html(tablaDat);
-                   console.log(msg);
-               },
-               error: function (err) {
+        // //Forma 1
+        // function mostrarClientes() {
+        //    //var a = $("#idnombre").val();
+        //    //var b = $("#idcorreo").val();
+        //    ////var cadPass = "Nombre=" + a + "&Correo=" + b;
+        //    //var cadPass = { Nombre: a, Correo: b };
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "servidor.php",
+        //        //data: '{Nombre: "' + $("#nombre").val() + '", Apellido: "' + $("#apellido").val() + '"}',
+        //        //data: cadPass,
+        //        //data: JSON.stringify(cadPass),
+        //     //    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        //        //contentType: "text/ html; charset = utf - 8",
+        //        contentType: "application/json; charset=utf-8",
+        //     //    dataType: "json",
+        //        dataType: "html",
+        //        success: function (msg) {
+        //            $("#mostrar").html(msg);
+        //            console.log(msg);
+        //            //var tablaDat = msg.getElementsByTagName("string")[0].firstChild.data;
+        //            //$("#mostrar").html(tablaDat);
+        //            //console.log(msg);
+        //        },
+        //        error: function (err) {
+        //            //error
+        //        }
+        //    });
+        // }
+        // function buscarTextoEnNombre(name) {
+        // //    var cadPass = "Nombre=" + name;
+        //    var cadPass = { Nombre: name };
+        //    $.ajax({
+        //        //type: "GET",
+        //        type: "POST",
+        //        url: "servidor2.php",
+        //        //url: "WebService1.asmx/findTextInName?Nombre=" + name,
+        //     //    data: cadPass,
+        //        data: JSON.stringify(cadPass),
+        //     //    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        //        contentType: "application/json; charset=utf-8",
+        //        //dataType: "xml",
+        //        dataType: "html",
+        //        success: function (msg) {
+        //            $("#mostrar").html(msg);
+        //            //var tablaDat = msg.getElementsByTagName("string")[0].firstChild.data;
+        //            //$("#mostrar").html(tablaDat);
+        //            console.log(msg);
+        //        },
+        //        error: function (err) {
 
-               }
-           });
-        }
-        // //Forma 2
-        // $(function () {
-        //     $("#mostrarClientes").show(function () {
-        //         //var a = $("#idnombre").val();
-        //         //var b = $("#idcorreo").val();
-        //         //var cadPass = "Nombre=" + a + "&Correo=" + b;
-        //         //var cadPass = JSON.stringify({ Nombre: a, Correo: b });
-        //         $.post({
-        //             url: "servidor.php",
-        //             //data: '{Nombre: "' + $("#nombre").val() + '", Apellido: "' + $("#apellido").val() + '"}',
-        //             //data: cadPass,
-        //             //data: JSON.stringify(cadPass),
-        //             // contentType: "application/x-www-form-urlencoded; charset=utf-8",
-        //             //contentType: "text/ html; charset = utf - 8",
-        //             contentType: "application/json; charset=utf-8",
-        //             //dataType: "json",
-        //             dataType: "html"
-        //         }).done(function (msg) {
-        //             $("#mostrar").html(msg);
-        //             console.log(msg);
-        //             // var datos = msg.getElementsByTagName("string")[0].firstChild.data;
-        //             // $("#mostrar").html(datos);
-        //             // console.log(msg);
-        //         }).fail(manejarErrorAjax).always(function () {
-        //         });
-        //     });
-        //     function manejarErrorAjax(err) {
-        //         console.log(err.responseText);
-        //     }
-        // })
-        // $(function () {
-        //     $("#idbuscar").keyup(function () {
-        //         var name = $("#idbuscar").val();
-        //         //var cadPass = "Nombre=" + name;
-        //         var cadPass = { Nombre: name };
-        //         $.post({
-        //             url: "servidor.php",
-        //             //url: "WebService1.asmx/findTextInName?Nombre=" + name,
-        //             //data: '{Nombre: "' + $("#nombre").val() + '", Apellido: "' + $("#apellido").val() + '"}',
-        //             //data: cadPass,
-        //             data: JSON.stringify(cadPass),
-        //             //contentType: "application/x-www-form-urlencoded; charset=utf-8",
-        //             //contentType: "text/ html; charset = utf - 8",
-        //             contentType: "application/json; charset=utf-8",
-        //             dataType: "json",
-        //             //dataType: "xml",
-        //         }).done(function (msg) {
-        //             $("#mostrar").html(msg.d);
-        //             //var tablaDat = msg.getElementsByTagName("string")[0].firstChild.data;
-        //             //$("#mostrar").html(tablaDat);
-        //             console.log(msg);
-        //         }).fail(manejarErrorAjax).always(function () {
-        //         });
-        //     });
-        //     function manejarErrorAjax(err) {
-        //         console.log(err.responseText);
-        //     }
-        // })
+        //        }
+        //    });
+        // }
+        //Forma 2
+        $(function () {
+            $("#mostrarClientes").show(function () {
+                //var a = $("#idnombre").val();
+                //var b = $("#idcorreo").val();
+                //var cadPass = "Nombre=" + a + "&Correo=" + b;
+                //var cadPass = JSON.stringify({ Nombre: a, Correo: b });
+                $.post({
+                    url: "servidor.php",
+                    //data: '{Nombre: "' + $("#nombre").val() + '", Apellido: "' + $("#apellido").val() + '"}',
+                    //data: cadPass,
+                    //data: JSON.stringify(cadPass),
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    //contentType: "text/ html; charset = utf - 8",
+                    // contentType: "application/json; charset=utf-8",
+                    //dataType: "json",
+                    dataType: "html"
+                }).done(function (msg) {
+                    $("#mostrar").html(msg);
+                    console.log(msg);
+                    // var datos = msg.getElementsByTagName("string")[0].firstChild.data;
+                    // $("#mostrar").html(datos);
+                    // console.log(msg);
+                }).fail(manejarErrorAjax).always(function () {
+                });
+            });
+            function manejarErrorAjax(err) {
+                console.log(err.responseText);
+            }
+        })
+        $(function () {
+            $("#idbuscar").keyup(function () {
+                var name = $("#idbuscar").val();
+                var cadPass = "Nombre=" + name;
+                // var cadPass = { Nombre: name };
+                $.post({
+                    url: "servidor2.php",
+                    //url: "WebService1.asmx/findTextInName?Nombre=" + name,
+                    //data: '{Nombre: "' + $("#nombre").val() + '", Apellido: "' + $("#apellido").val() + '"}',
+                    data: cadPass,
+                    // data: JSON.stringify(cadPass),
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    //contentType: "text/ html; charset = utf - 8",
+                    // contentType: "application/json; charset=utf-8",
+                    // dataType: "json",
+                    dataType: "html",
+                }).done(function (msg) {
+                    $("#mostrar").html(msg);
+                    //var tablaDat = msg.getElementsByTagName("string")[0].firstChild.data;
+                    //$("#mostrar").html(tablaDat);
+                    console.log(msg);
+                }).fail(manejarErrorAjax).always(function () {
+                });
+            });
+            function manejarErrorAjax(err) {
+                console.log(err.responseText);
+            }
+        })
         // //Forma 3
         // var respuesta = document.getElementById("mostrar");
         // function mostrarClientes() {
@@ -165,11 +165,11 @@
         //        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         //    }
         //    var cadPass = JSON.stringify({ Nombre: name });
-        //    //var cadPass = "Nombre=" + name;
+        // //    var cadPass = "Nombre=" + name;
         //    xmlhttp.onreadystatechange = function () {
         //        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-        //            var datos = JSON.parse(xmlhttp.responseText);
-        //            respuesta.innerHTML = datos.d;
+        //         //    var datos = JSON.parse(xmlhttp.responseText);
+        //            respuesta.innerHTML = xmlhttp.responseText;
         //            //var datos = xmlhttp.responseXML;
         //            //respuesta.innerHTML = datos.getElementsByTagName("string")[0].firstChild.data;
         //            console.log(xmlhttp);
@@ -177,8 +177,8 @@
         //    }
         //    //Queda pendiente hacerlo funcionar con GET
         //    //xmlhttp.open("GET", "WebService1.asmx/findTextInName?Nombre=" + name, true);
-        //    xmlhttp.open("POST", "servidor.php", true);
-        //    //xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=utf-8");
+        //    xmlhttp.open("POST", "servidor2.php", true);
+        // //    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=utf-8");
         //    xmlhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
         //    xmlhttp.send(cadPass);
         //    //xmlhttp.send();
