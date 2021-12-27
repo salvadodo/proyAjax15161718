@@ -17,7 +17,11 @@
 // }
 // mysqli_close($con);
 
+<<<<<<< HEAD
 // Backend con base de datos mysql server mostrarClientes()
+=======
+//Backend con base de datos mysql
+>>>>>>> 6b326c04278c5a0ec7f56d9fb9d82646167c0e38
 require "conexionsqlserver.php";
 $datos=sqlsrv_query($con, "select * from AjaxconBD2");
 while($fila=sqlsrv_fetch_array($datos, SQLSRV_FETCH_BOTH)){
